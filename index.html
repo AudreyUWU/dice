@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+
+</head>
+
+<body>
+    <script>
+        var count = ["", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+        function roll() {
+            var rand = 1 + Math.floor(Math.random() * 6);
+            return rand;
+        }
+
+        function display() {
+
+            for (var i = 0; i <= 1000; i++) {
+
+                var sum = roll() + roll();
+                console.log(sum);
+                count[sum] += 1;
+
+            }
+
+            for (var i = 2; i < count.length; i++) {
+                var outcomes = document.createElement("div");
+                outcomes.textContent = i + ": " + count[i];
+                document.body.appendChild(outcomes);
+            }
+            return count;
+        }
+
+        display();
+
+        for (var i = 2; i <= 12; i++) {
+            var bar = document.createElement("div");
+            bar.setAttribute("style", "background: blue; width: " + count[i] +
+                "px; height: 50px; margin: 5px; outline: 1px solid white;");
+            document.body.appendChild(bar);
+        }
+    </script>
+</body>
+
+</html>
